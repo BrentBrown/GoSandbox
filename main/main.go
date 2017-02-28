@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
-	fmt.Println(foo(2))
-
+	c, _ := foo(2)
+	fmt.Println(c)
 }
 
 func foo(x int) (y, z int) {
