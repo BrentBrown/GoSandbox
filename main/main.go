@@ -9,7 +9,7 @@ func main() {
 	fmt.Printf("%d - %b - %#X \n", 42, 42, 42)
 	fmt.Printf("%d \t %b \t %#X \n", 42, 42, 42)
 
-	for index := 1; index < 256; index++ {
-		fmt.Printf("%d \t %b \t %x \n", index, index, index)
+	for index := 1; index < 1024; index++ {
+		fmt.Printf("%d \t %b \t %x \t %q \n", index, index, index, index)
 	}
 }
