@@ -26,7 +26,12 @@ func main() {
 	fmt.Printf("%v - %T \n", e, e)
 	fmt.Printf("%v - %T \n", f, f)
 	fmt.Printf("%v - %T \n", g, g)
-	fmt.Printf("%v - %T \n", h, h)
+	//fmt.Printf("%v - %T \n", h, h)
+	otherPrint()
 
 	fmt.Println(stringutils.Reverse("Hi There!"))
+
+	max := max(7)
+	fmt.Println(max)
+	fmt.Printf("%v - %T \n", X, X)
 }
