@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
-import "../stringutils"
+import (
+	"fmt"
+	"stringutils"
+)
 
+//import "../stringutils"
 //import "github.com/BrentBrown/GoSandbox/stringutils"
 
 func main() {
