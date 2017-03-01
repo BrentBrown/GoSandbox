@@ -4,21 +4,23 @@ import (
 	"fmt"
 )
 
+
+func zero(x int) {
+	fmt.Printf("%v - %T \n", x, x)
+	x = 0
+}
+
+func zerop(x *int) {
+	fmt.Printf("%v - %T \n", x, x)
+	*x = 0
+}
+
 func main() {
-	a := 42
+	x := 5
+	fmt.Printf("%v - %T \n", x, x)
+	zero(x)
+	fmt.Printf("%v - %T \n", x, x)
 
-	fmt.Printf("%v - %T \n", a, a)
-	fmt.Printf("%v - %T \n", &a, &a)
-
-	var b *int = &a
-	fmt.Printf("%v - %T \n", b, b)
-	fmt.Printf("%v - %T \n", *b, *b)
-
-	*b = 27
-	fmt.Printf("%v - %T \n", a, a)
-
-	*&a = 12
-	fmt.Printf("%v - %T \n", *b, *b)
-
-
+	zerop(&x)
+	fmt.Printf("%v - %T \n", x, x)
 }
