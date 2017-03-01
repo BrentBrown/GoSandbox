@@ -5,8 +5,13 @@ import (
 )
 
 func main() {
-	c, _ := foo(2)
+	c, d := foo(2)
 	fmt.Println(c)
+	fmt.Println(&c)
+	fmt.Println(&d)
+	temp := foo
+	fmt.Println(&temp)
+
 }
 
 func foo(x int) (y, z int) {
