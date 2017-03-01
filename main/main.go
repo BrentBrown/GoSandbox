@@ -11,7 +11,8 @@ func main() {
 	fmt.Println(&d)
 	temp := foo
 	fmt.Println(&temp)
-
+	fmt.Printf("%d \n", &temp)
+	fmt.Printf("%b \n", &temp)
 }
 
 func foo(x int) (y, z int) {
