@@ -10,5 +10,4 @@ func main() {
 		list[i], list[j] = list[j], list[i]
 	}
 	fmt.Println(string(list))
-
 }
