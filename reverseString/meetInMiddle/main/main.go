@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import 	"fmt"
 
 func main() {
 	list := []rune("This is a string that needs to be reversed.")
