@@ -22,7 +22,7 @@ func recursive(number int) int {
 	return number * recursive(number-1)
 }
 
-//compiler doesn't actually optimize stack.
+//compiler doesn't actually optimize stack in Go.
 func tailRecursive(number int, product int) int {
 	product = product * number
 
