@@ -1,8 +1,8 @@
 package main
 
 import (
-	"sort"
 	"fmt"
+	"sort"
 )
 
 type people []string
@@ -25,4 +25,3 @@ func main() {
 	sort.Sort(studyGroup)
 	fmt.Println(studyGroup)
 }
-

@@ -17,7 +17,7 @@ type Circle struct {
 	radius float64
 }
 
-func info(z Shape)  {
+func info(z Shape) {
 	fmt.Println(z.area())
 }
 
@@ -30,8 +30,8 @@ func (s Square) area() float64 {
 }
 
 func main() {
-	var c = Circle{ radius: 33 }
-	var s = Square{ side: 12}
+	var c = Circle{radius: 33}
+	var s = Square{side: 12}
 	info(c)
 	info(s)
 }
