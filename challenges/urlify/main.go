@@ -11,26 +11,22 @@ has sufficient space at the end to hold the additional characters, and that you 
 length of the string.
  */
 
-func urlify(s string, l int) string {
+func urlify(input string, length int) string {
 	var buffer bytes.Buffer
-	d := len(s) - l
-	a := []rune(s)
-	for i := len(s) - 1 - d; i >= 0; i-- {
-		if a[i] != ' ' {
-			buffer.WriteString(string(a[i]))
+	delta := len(input) - length
+	url := []rune(input)
+	for i := 0; i < len(input); i++ {
+		if buffer.Len() >= length + delta { break }
+		if url[i] != ' ' {
+			buffer.WriteString(string(url[i]))
 		} else {
-			buffer.WriteString("02%")
+			buffer.WriteString("%20")
 		}
 	}
-	u := []rune(buffer.String())
-
-	for i, j := 0, len(u) - 1; i < j; i, j = i+1, j-1 {
-		u[i], u[j] = u[j], u[i]
-	}
-	return string(u)
+	return buffer.String()
 }
 
 func main() {
-	u := urlify("mr john doe    ", 11)
+	u := urlify("Mr John Doe Sr      ", 13)
 	fmt.Println(u)
 }
