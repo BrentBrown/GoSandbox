@@ -7,9 +7,9 @@ import (
 
 func main() {
 	l := new(linkedList.List)
+
 	e := new(linkedList.Element)
 	e.Value = 42
-
 	l.Append(e)
 
 	f := new(linkedList.Element)
@@ -20,6 +20,10 @@ func main() {
 	g.Value = 1
 	l.Append(g)
 
-	m := l.Get(2)
+	h := new(linkedList.Element)
+	h.Value = 100
+	l.Append(h)
+
+	m := l.Get(3)
 	fmt.Printf("%v", m.Value)
 }

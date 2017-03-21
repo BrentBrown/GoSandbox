@@ -16,9 +16,8 @@ func (l *List) Append(e *Element) {
 		l.root = e
 		l.end = e
 	} else {
-		oldEnd := l.end
+		l.end.Next = e
 		l.end = e
-		oldEnd.Next = e
 	}
 	l.Length++
 }
