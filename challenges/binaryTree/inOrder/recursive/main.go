@@ -2,29 +2,42 @@ package main
 
 import (
 	"fmt"
-	"github.com/BrentBrown/GoSandbox/challenges/binaryTree"
 )
 
-func inOrder(node *binaryTree.Node) {
+type Node struct {
+	Data  int
+	Left  *Node
+	Right *Node
+}
+
+func InOrder(node *Node) {
 	if node == nil {
 		return
 	}
-	inOrder(node.Left)
+	InOrder(node.Left)
 	fmt.Print(node.Data, "\t")
-	inOrder(node.Right)
+	InOrder(node.Right)
 }
 
 func main() {
-	root := binaryTree.Create(42)
-	root.Left = binaryTree.Create(6)
-	root.Left.Left = binaryTree.Create(12)
-	root.Left.Left.Left = binaryTree.Create(-3)
-	root.Left.Left.Right = binaryTree.Create(20)
+	root := Create(42)
+	root.Left = Create(6)
+	root.Left.Left = Create(12)
+	root.Left.Left.Left = Create(-3)
+	root.Left.Left.Right = Create(20)
 
-	root.Left.Right = binaryTree.Create(4)
-	root.Right = binaryTree.Create(10)
-	root.Right.Left = binaryTree.Create(20)
-	root.Right.Right = binaryTree.Create(-7)
+	root.Left.Right = Create(4)
+	root.Right = Create(10)
+	root.Right.Left = Create(20)
+	root.Right.Right = Create(-7)
 
-	inOrder(root)
+	InOrder(root)
+}
+
+func Create(value int) *Node {
+	node := new(Node)
+	node.Data = value
+	node.Left = nil
+	node.Right = nil
+	return node
 }
