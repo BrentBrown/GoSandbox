@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", handler1)
+	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
 
-func handler1(w http.ResponseWriter, r *http.Request) {
+func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Your path: ", r.URL.Path)
 }
