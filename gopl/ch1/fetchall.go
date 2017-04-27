@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
@@ -30,7 +29,9 @@ func fetch(url string, ch chan<- string) {
 		ch <- fmt.Sprint(err)
 		return
 	}
-	nbytes, err := io.Copy(ioutil.Discard, resp.Body)
+	f, _ := os.Create(fmt.Sprintf("%s\n", time.Now()))
+	defer f.Close()
+	nbytes, err := io.Copy(f, resp.Body)
 	resp.Body.Close()
 	if err != nil {
 		ch <- fmt.Sprintf("while reading %s: %v", url, err)
