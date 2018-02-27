@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	const s = 9
+	const s = 20
 	var as, bs int
 	var a, b [s]int
 
@@ -25,11 +25,3 @@ func getdata(s int) []int {
 	}
 	return o
 }
-
-// func getdataOld(s int) []int {
-// 	o := make([]int, s)
-// 	for i := 0; i < s; i++ {
-// 		o[i] = i + 1
-// 	}
-// 	return o
-// }
