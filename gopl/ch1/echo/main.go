@@ -8,9 +8,13 @@ import (
 func main() {
 	var s, sep string
 	hack := []string{"main", "foo", "bar"}
-	for i := 1; i < len(hack); i++ {
+	for i := foo(); i < len(hack); i++ {
 		s += sep + hack[i]
 		sep = " "
 	}
 	fmt.Println(s)
+}
+
+func foo() int {
+	return 1
 }
