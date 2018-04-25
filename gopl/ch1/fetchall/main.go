@@ -8,21 +8,28 @@
 package main
 
 import (
+	"crypto/rand"
+	"encoding/hex"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
+	"path/filepath"
 	"time"
 )
 
 func main() {
+	args := make([]string, 3)
+	args[0] = "main.go"
+	args[1] = "http://boardgamegeek.com"
+	args[2] = "http://boardgamegeek.com"
+
 	start := time.Now()
 	ch := make(chan string)
-	for _, url := range os.Args[1:] {
+	for _, url := range args[1:] {
 		go fetch(url, ch) // start a goroutine
 	}
-	for range os.Args[1:] {
+	for range args[1:] {
 		fmt.Println(<-ch) // receive from channel ch
 	}
 	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
@@ -36,7 +43,10 @@ func fetch(url string, ch chan<- string) {
 		return
 	}
 
-	nbytes, err := io.Copy(ioutil.Discard, resp.Body)
+	newFile, _ := os.Create(randomFileName("foo", ".txt"))
+	defer newFile.Close()
+
+	nbytes, err := io.Copy(newFile, resp.Body)
 	resp.Body.Close() // don't leak resources
 	if err != nil {
 		ch <- fmt.Sprintf("while reading %s: %v", url, err)
@@ -46,4 +56,8 @@ func fetch(url string, ch chan<- string) {
 	ch <- fmt.Sprintf("%.2fs  %7d  %s", secs, nbytes, url)
 }
 
-//!-
+func randomFileName(prefix, suffix string) string {
+	randBytes := make([]byte, 16)
+	rand.Read(randBytes)
+	return filepath.Join(prefix + hex.EncodeToString(randBytes) + suffix)
+}
