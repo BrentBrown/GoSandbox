@@ -1,20 +1,16 @@
 // Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
 // License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-// See page 8.
+// See page 1.
 
-// Echo3 prints its command-line arguments.
+// Helloworld is our first Go program.
+//!+
 package main
 
-import (
-	"fmt"
-	"os"
-	"strings"
-)
+import "fmt"
 
-//!+
 func main() {
-	fmt.Println(strings.Join(os.Args[1:], " "))
+	fmt.Println("Hello, 世界")
 }
 
 //!-

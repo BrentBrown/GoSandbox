@@ -1,20 +1,19 @@
 // Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
 // License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-// See page 8.
+// See page 295.
 
-// Echo3 prints its command-line arguments.
+// The cross command prints the values of GOOS and GOARCH for this target.
 package main
 
 import (
 	"fmt"
-	"os"
-	"strings"
+	"runtime"
 )
 
 //!+
 func main() {
-	fmt.Println(strings.Join(os.Args[1:], " "))
+	fmt.Println(runtime.GOOS, runtime.GOARCH)
 }
 
 //!-
